@@ -32,7 +32,7 @@ resource "aws_elasticache_parameter_group" "main" {
 
 resource "aws_elasticache_cluster" "main" {
   cluster_id           = "${local.name_prefix}-cluster"
-  security_group_ids   = [aws_elasticache_subnet_group.main.id]
+  security_group_ids   = [aws_security_group.main.id]
   subnet_group_name    = aws_elasticache_subnet_group.main.name
   engine               = var.engine
   engine_version       = var.engine_version
